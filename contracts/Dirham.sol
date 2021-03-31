@@ -75,6 +75,7 @@ contract Dirham is Initializable, AccessControlUpgradeSafe, ERC20DetailedUpgrade
     }
 
     function transfer(address recipient, uint256 amount) external override returns (bool) {
+        require(recipient != address(this), "Transfer to Dirham is not allowed");
         _transfer(_msgSender(), recipient, amount);
         emit Transfer(_msgSender(), recipient, amount);
         return true;   
@@ -140,8 +141,7 @@ contract Dirham is Initializable, AccessControlUpgradeSafe, ERC20DetailedUpgrade
         return true;
     }
 
-    function emitTransfer(address sender, address recipient, uint256 amount) onlyOwner external {
-        emit Transfer(sender, recipient, amount);
+    function rescueERC20(address token, address recipient, uint256 amount) external onlyOwner {
+        IERC20(token).transfer(recipient, amount);
     }
-
 }

@@ -1,8 +1,8 @@
 pragma solidity ^0.6.12;
 
-import "@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol";
-import "@openzeppelin/contracts-ethereum-package/contracts/GSN/Context.sol";
+import "./@openzeppelin/contracts-ethereum-package/contracts/token/ERC20/IERC20.sol";
+import "./@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol";
+import "./@openzeppelin/contracts-ethereum-package/contracts/GSN/Context.sol";
 
 
 abstract contract ERC20DetailedUpgradeSafe is Initializable, ContextUpgradeSafe, IERC20{
